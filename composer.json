@@ -1,0 +1,17 @@
+{
+    "name": "andrei/solid-eleve-store-php",
+    "description": "Principios SOLID em PHP",
+    "type": "project",
+    "autoload": {
+        "psr-4": {
+            "Rosseti\\SolidEleveStorePhp\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Andrei Rosseti",
+            "email": "andrei@facedigital.com.br"
+        }
+    ],
+    "require": {}
+}
