@@ -2,10 +2,12 @@
 
 namespace Rosseti\SolidEleveStorePhp\PrincipioAbertoFechado;
 
+use Rosseti\SolidEleveStorePhp\Store\Pedido;
+
 class CalculadoraFreteGratis extends CalculadoraFrete 
 {
-    public function calcularFrete($pedido) 
+    public function calcularFrete(Pedido $pedido) 
     {
-        // Calcular frete grátis para determinados produtos
+        return 0;
     }
 }

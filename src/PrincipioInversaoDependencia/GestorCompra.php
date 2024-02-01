@@ -4,7 +4,7 @@ namespace Rosseti\SolidEleveStorePhp\PrincipioInversaoDependencia;
 
 class GestorCompra 
 {
-    private $enviadorEmail;
+    private $servicoEmail;
 
     public function __construct(ServicoEmail $servicoEmail) 
     {

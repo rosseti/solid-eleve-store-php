@@ -13,5 +13,7 @@
             "email": "andrei@facedigital.com.br"
         }
     ],
-    "require": {}
+    "require-dev": {
+        "phpunit/phpunit": "^10.5"
+    }
 }
