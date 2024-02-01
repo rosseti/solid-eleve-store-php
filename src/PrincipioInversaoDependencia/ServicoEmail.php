@@ -2,7 +2,10 @@
 
 namespace Rosseti\SolidEleveStorePhp\PrincipioInversaoDependencia;
 
-interface ServicoEmail
+class ServicoEmail implements ServicoEmailInterface
 {
-    public function enviarEmail($destinatario, $assunto, $mensagem);
+    public function enviarEmail($destinatario, $assunto, $mensagem)
+    {
+        return true;
+    }
 }

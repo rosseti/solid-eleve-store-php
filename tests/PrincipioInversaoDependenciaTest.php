@@ -9,31 +9,18 @@ use Rosseti\SolidEleveStorePhp\Store\Pedido;
 
 class PrincipioInversaoDependenciaTest extends TestCase
 {
+    public function setUp() : void
+    {
+        $this->cliente = new Cliente('John Doe', 'john.doe@tests.com');
+        $this->pedido = new Pedido(1, [1], 500, $this->cliente);
+    }
+
     public function testFinalizarCompraEnviaEmail()
     {
-        $pedido = $this->getMockBuilder(Pedido::class)
-                       ->disableOriginalConstructor()
-                       ->getMock();
-        
-        $cliente = $this->getMockBuilder(Cliente::class)
-                        ->disableOriginalConstructor()
-                        ->getMock();
-
-        // Defina o método getEmail() para retornar um e-mail de cliente fictício
-        $cliente->expects($this->once())
-                ->method('getEmail')
-                ->willReturn('cliente@example.com');
-
-        // Defina o método getCliente() do pedido para retornar o cliente fictício
-        $pedido->expects($this->once())
-               ->method('getCliente')
-               ->willReturn($cliente);
-
-        $servicoEmail = $this->getMockBuilder(\Rosseti\SolidEleveStorePhp\PrincipioInversaoDependencia\ServicoEmail::class)
-               ->disableOriginalConstructor()
-               ->getMock();
-
+        $servicoEmail = new ServicoEmail();
         $gestorCompra = new GestorCompra($servicoEmail);
-        $gestorCompra->finalizarCompra($pedido);
+        $response = $gestorCompra->finalizarCompra($this->pedido);
+
+        $this->assertTrue($response);
     }
 }

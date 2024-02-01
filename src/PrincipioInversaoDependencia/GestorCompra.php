@@ -2,19 +2,21 @@
 
 namespace Rosseti\SolidEleveStorePhp\PrincipioInversaoDependencia;
 
+use Rosseti\SolidEleveStorePhp\Store\Pedido;
+
 class GestorCompra 
 {
     private $servicoEmail;
 
-    public function __construct(ServicoEmail $servicoEmail) 
+    public function __construct(ServicoEmailInterface $servicoEmail) 
     {
         $this->servicoEmail = $servicoEmail;
     }
 
-    public function finalizarCompra($pedido) 
+    public function finalizarCompra(Pedido $pedido) 
     {
         // Finalizar compra
-        $this
+        return $this
             ->servicoEmail
             ->enviarEmail($pedido->getCliente()->getEmail(), 
                 "Compra realizada com sucesso", 

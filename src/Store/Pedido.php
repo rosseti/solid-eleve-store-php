@@ -9,11 +9,12 @@ class Pedido
     private $total;
     private $cliente;
 
-    public function __construct($id, $itens, $total) 
+    public function __construct($id, $itens, $total, $cliente) 
     {
         $this->id = $id;
         $this->itens = $itens;
         $this->total = $total;
+        $this->cliente = $cliente;
     }
 
     public function getId() 
